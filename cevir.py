@@ -25,7 +25,7 @@ class MainWindow(Gtk.Window):
         if event.keyval == Gdk.KEY_Escape:
             Gtk.main_quit()
 
-
+lang="tr"
 if len(sys.argv) > 1:
     translator = Translator()
     x=int(sys.argv[2])
@@ -33,7 +33,7 @@ if len(sys.argv) > 1:
     window = MainWindow(x,y)
     window.connect("delete-event", Gtk.main_quit)
     selected_text = sys.argv[1]
-    translation = translator.translate(selected_text, dest='tr').text
+    translation = translator.translate(selected_text, dest=lang).text
     window.set_text(translation)
 
     window.show_all()
