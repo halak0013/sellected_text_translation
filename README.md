@@ -1,5 +1,8 @@
 # sellected_text_translation
 It use google traslate api with python.
+## dependices
+
+`sudo apt install xsel xdotool`
 
 Now you can change your language from lang value.
 
