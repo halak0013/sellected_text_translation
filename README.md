@@ -1,5 +1,7 @@
-# sellected_text_translation
-It use google traslate api with python.
+# Sellected Text Translation
+![resim](https://github.com/halak0013/sellected_text_translation/assets/75750279/fd6fab45-40e7-4f36-bd40-740d09f8b2e0)
+
+
 ## dependices
 
 `sudo apt install xsel xdotool`
@@ -17,3 +19,5 @@ and when press esc it close
 
 if Your language different you can change lange list from 
 ![resim](https://github.com/halak0013/sellected_text_translation/assets/75750279/a002ec74-f502-4083-8577-fbee22ad4ac5)
+
+It use google traslate api with python.
