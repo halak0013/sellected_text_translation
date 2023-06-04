@@ -4,10 +4,16 @@ It use google traslate api with python.
 
 `sudo apt install xsel xdotool`
 
-Now you can change your language from lang value.
+`pip install googletrans==4.0.0-rc1`
+
+You can translate any selleceted with one click
+You can choose your language with at right combo box
 
 when give a shortcut to cevir.sh it gives a traslated text to your mouse cursor position.
 
-![traslate](https://user-images.githubusercontent.com/75750279/233400754-f56dc9ca-19cb-4159-a607-73a2aca26371.gif)
+![cikti](https://github.com/halak0013/sellected_text_translation/assets/75750279/e064c1e0-b5f8-48e5-92d2-ca43045db4e3)
 
 and when press esc it close
+
+if Your language different you can change lange list from 
+![resim](https://github.com/halak0013/sellected_text_translation/assets/75750279/a002ec74-f502-4083-8577-fbee22ad4ac5)
