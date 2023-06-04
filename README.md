@@ -1,6 +1,5 @@
 # Sellected Text Translation
-![resim](https://github.com/halak0013/sellected_text_translation/assets/75750279/fd6fab45-40e7-4f36-bd40-740d09f8b2e0)
-
+![resim](https://github.com/halak0013/sellected_text_translation/assets/75750279/0476885f-1227-4869-b166-529a3ea46585)
 
 ## dependices
 
