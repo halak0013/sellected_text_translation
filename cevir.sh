@@ -10,5 +10,5 @@ y=$(echo $xy | awk '{print $2}' | awk -F: '{print $2}')
 echo $x
 
 if [ ! -z "$selected_text" ]; then
-    python3 /home/bismih/projelerimiz/bash/ceviri/cevir.py "$selected_text" $x $y
+    python3 cevir.py "$selected_text" $x $y
 fi
