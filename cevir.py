@@ -2,7 +2,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk,Gdk
 import sys
-from googletrans import Translator
+from translate import Translator
 import json
 
 class MainWindow(Gtk.Window):
@@ -62,7 +62,8 @@ class MainWindow(Gtk.Window):
         s_text = self.input_text.get_text()
         if s_text is not None and s_text != "":
             try:
-                translation = translator.translate(s_text, dest=lang).text
+                translator = Translator(to_lang=lang)
+                translation = translator.translate(s_text)
                 if translation is not None:
                     self.label.set_text(self.text_configure(translation, 7))
                 else:
@@ -96,7 +97,6 @@ class MainWindow(Gtk.Window):
             print("çevir")
 
 if len(sys.argv) > 1:
-    translator = Translator()
     x=int(sys.argv[2])
     y=int(sys.argv[3])
     selected_text = sys.argv[1]
