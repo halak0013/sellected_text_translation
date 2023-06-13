@@ -69,7 +69,6 @@ class MainWindow(Gtk.Window):
         
     def lang_changed(self,cmb):
         self.translate()
-        print("de")
 
     def translate(self):
         lang_o = self.cmb_lang_o.get_active_text().split()[0]
@@ -93,8 +92,7 @@ class MainWindow(Gtk.Window):
         txt=txt.split()
         result=""
         for i,t in enumerate(txt):
-            print(i%k)
-            if i%k==0:
+            if i%k==0 and i != 0:
                 result+="\n"
             result+=t+" "
         return result
