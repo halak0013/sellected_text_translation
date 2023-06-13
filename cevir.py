@@ -3,7 +3,6 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk,Gdk
 import sys
 from translate import Translator
-import json
 
 class MainWindow(Gtk.Window):
     def __init__(self,x,y,selected_text):
