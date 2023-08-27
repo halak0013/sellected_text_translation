@@ -1,9 +1,10 @@
+import json
 import gi
+import requests
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk,Gdk
 import sys
-from translate import Translator
-
+from urllib.parse import quote
 class MainWindow(Gtk.Window):
     def __init__(self,x,y,selected_text):
         Gtk.Window.__init__(self)
@@ -73,20 +74,26 @@ class MainWindow(Gtk.Window):
     def translate(self):
         lang_o = self.cmb_lang_o.get_active_text().split()[0]
         lang_i = self.cmb_lang_i.get_active_text().split()[0]
-        s_text = self.input_text.get_text()
-        if s_text is not None and s_text != "":
-            try:
-                translator = Translator(to_lang=lang_o,from_lang=lang_i)
-                translation = translator.translate(s_text)
-                if translation is not None:
-                    self.label.set_text(self.text_configure(translation, 7))
-                else:
-                    self.label.set_text("Translation not available.")
-            except Exception as e:
-                print("Translation error:", e)
-                self.label.set_text("Translation error occurred.")
-        else:
-            self.label.set_text("No text to translate.")
+        text = quote(self.input_text.get_text())
+        url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl={lang_i}&tl={lang_o}&dt=t&q={text}"
+        result = ""
+        try:
+            with requests.get(url, stream=True) as response:
+                response.raise_for_status()
+                with open("/tmp/translate/t.txt", "wb") as file:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        file.write(chunk)
+            with open("/tmp/translate/t.txt", "r") as f:
+                tr = f.readline()
+                print(tr)
+                for d in json.loads(tr)[0]:
+                    while not type(d) == str:
+                        d = d[0]
+                    result += d
+            self.label.set_text(self.text_configure(result, 7))
+        except requests.exceptions.RequestException as e:
+            print(f"File download error: {e}")
+            self.label.set_text("null")
 
     def text_configure(self,txt,k):
         txt=txt.split()
