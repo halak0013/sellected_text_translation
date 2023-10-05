@@ -1,4 +1,5 @@
 import json
+import os
 import gi
 import requests
 gi.require_version('Gtk', '3.0')
@@ -72,6 +73,8 @@ class MainWindow(Gtk.Window):
         self.translate()
 
     def translate(self):
+        if not os.path.exists("/tmp/translate"):
+            os.mkdir("/tmp/translate")
         lang_o = self.cmb_lang_o.get_active_text().split()[0]
         lang_i = self.cmb_lang_i.get_active_text().split()[0]
         text = quote(self.input_text.get_text())
@@ -119,6 +122,7 @@ class MainWindow(Gtk.Window):
 if len(sys.argv) > 1:
     x=int(sys.argv[2])
     y=int(sys.argv[3])
+    print(x,y)
     selected_text = sys.argv[1]
     
     window = MainWindow(x,y,selected_text)
