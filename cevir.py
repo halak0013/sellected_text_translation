@@ -77,7 +77,7 @@ class MainWindow(Gtk.Window):
             os.mkdir("/tmp/translate")
         lang_o = self.cmb_lang_o.get_active_text().split()[0]
         lang_i = self.cmb_lang_i.get_active_text().split()[0]
-        text = quote(self.input_text.get_text())
+        text = quote(self.input_text.get_text().replace("\n", ""))
         url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl={lang_i}&tl={lang_o}&dt=t&q={text}"
         result = ""
         try:
