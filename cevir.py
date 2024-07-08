@@ -116,8 +116,11 @@ class MainWindow(Gtk.Window):
         if event.keyval == Gdk.KEY_Escape:
             Gtk.main_quit()
         if event.keyval == Gdk.KEY_Return or event.keyval == Gdk.KEY_KP_Enter:
+            self.label.set_text("armut")
+            self.label.get_parent().queue_resize()
+            self.set_size_request(-1, -1)
+            self.resize(1, 1)
             self.translate()
-            print("çevir")
 
 if len(sys.argv) > 1:
     x=int(sys.argv[2])
